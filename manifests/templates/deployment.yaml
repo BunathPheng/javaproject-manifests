@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javaproject
+  labels:
+    app: javaproject
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javaproject
+  template:
+    metadata:
+      labels:
+        app: javaproject
+    spec:
+      containers:
+        - name: javaproject
+          image: docker.io/phengbunath/javaproject:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
